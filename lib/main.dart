@@ -49,7 +49,7 @@ class _LachapaHomeState extends State<LachapaHome> {
             onTap: () {
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const LachapaPedido()),
+                MaterialPageRoute(builder: (context) => LachapaPedido(table: i + 1,)),
               );
             },
             child: Container(
