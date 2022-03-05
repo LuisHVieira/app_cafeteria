@@ -1,3 +1,4 @@
+import 'package:app_lanchonete/pedido.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -7,7 +8,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return const MaterialApp(
@@ -33,21 +33,24 @@ class _LachapaHomeState extends State<LachapaHome> {
         title: const Text('LACHAPA'),
         backgroundColor: Colors.purple.shade600,
       ),
-      body: _buildGrid(),
+      body: _buildGrid(context),
     );
   }
 
-  Widget _buildGrid() => GridView.extent(
+  Widget _buildGrid(BuildContext context) => GridView.extent(
       maxCrossAxisExtent: 300,
       mainAxisSpacing: 4,
       crossAxisSpacing: 4,
       children: _buildGridTileList(16));
 
   List<GestureDetector> _buildGridTileList(int count) => List.generate(
-        count,
-        (i) => GestureDetector(
+      count,
+      (i) => GestureDetector(
             onTap: () {
-              print('dhagda');
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const LachapaPedido()),
+              );
             },
             child: Container(
               decoration: BoxDecoration(
@@ -75,8 +78,11 @@ class _LachapaHomeState extends State<LachapaHome> {
               child: Center(
                   child: Text(
                 (i + 1).toString(),
-                style: const TextStyle(color: Colors.black, fontSize: 48, fontWeight: FontWeight.bold),
+                style: const TextStyle(
+                    color: Colors.black,
+                    fontSize: 48,
+                    fontWeight: FontWeight.bold),
               )),
-            )),
-      );
+            ),
+          ));
 }
