@@ -1,14 +1,15 @@
+import 'package:app_lanchonete/bebidas.dart';
+import 'package:app_lanchonete/lanches.dart';
+import 'package:app_lanchonete/porcoes.dart';
 import 'package:flutter/material.dart';
 
 class LachapaPedido extends StatefulWidget {
-   
   final int table;
 
   const LachapaPedido({Key? key, required this.table}) : super(key: key);
 
   @override
   State<LachapaPedido> createState() => _LachapaPedidoState();
-
 }
 
 class _LachapaPedidoState extends State<LachapaPedido> {
@@ -45,7 +46,11 @@ class _LachapaPedidoState extends State<LachapaPedido> {
                   image: AssetImage('media/hamburguer.png'),
                 ),
                 onTap: () {
-                  Navigator.pop(context);
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const LachapaLanches()),
+                  );
                 },
               ),
             ),
@@ -59,7 +64,10 @@ class _LachapaPedidoState extends State<LachapaPedido> {
                   image: AssetImage('media/french-fries.png'),
                 ),
                 onTap: () {
-                  Navigator.pop(context);
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const LachapaPorcoes()));
                 },
               ),
             ),
@@ -73,7 +81,10 @@ class _LachapaPedidoState extends State<LachapaPedido> {
                   image: AssetImage('media/soft-drink.png'),
                 ),
                 onTap: () {
-                  Navigator.pop(context);
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const LachapaBebidas()));
                 },
               ),
             ),
@@ -95,7 +106,8 @@ class _LachapaPedidoState extends State<LachapaPedido> {
                         color: Colors.green,
                         height: 100,
                         child: Center(
-                          child: Text('${(index + 1).toString()} Batata Completa'),
+                          child:
+                              Text('${(index + 1).toString()} Batata Completa'),
                         )),
                   ],
                 )),
