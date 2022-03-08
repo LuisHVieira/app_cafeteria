@@ -1,15 +1,13 @@
-import 'package:app_lanchonete/escolhas.dart';
-import 'package:app_lanchonete/main.dart';
 import 'package:flutter/material.dart';
 
-class LachapaLanches extends StatefulWidget {
+class Remove extends StatefulWidget {
   @override
-  const LachapaLanches({Key? key}) : super(key: key);
+  const Remove({Key? key}) : super(key: key);
 
-  State<LachapaLanches> createState() => _LachapalanchesState();
+  State<Remove> createState() => _RemoveState();
 }
 
-class _LachapalanchesState extends State<LachapaLanches> {
+class _RemoveState extends State<Remove> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,14 +19,11 @@ class _LachapalanchesState extends State<LachapaLanches> {
     );
   }
 
-  Widget listBuild() => ListView.builder(
+ Widget listBuild() => ListView.builder(
         itemBuilder: ((context, index) {
           return GestureDetector(
               onTap: () {
-                 Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const Escolhas()));
+                 Navigator.pop(context);
               },
               child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
